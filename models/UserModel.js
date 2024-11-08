@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { ADMIN_ROLE, USER_ROLE, SUBADMIN_ROLE } = require('../constants/user.constants');
+// const { ADMIN_ROLE, USER_ROLE, SUBADMIN_ROLE } = require('../Constants/user.constants');
 
 const userSchema = new mongoose.Schema({
     name: { type: String },
@@ -14,8 +14,8 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: [ADMIN_ROLE, USER_ROLE, SUBADMIN_ROLE],
-        default: USER_ROLE,
+        // enum: [ADMIN_ROLE, USER_ROLE, SUBADMIN_ROLE],
+        default: "user",
     },
     createdAt: { type: Date, default: Date.now },
     isVerified: { type: Boolean, default: false },
