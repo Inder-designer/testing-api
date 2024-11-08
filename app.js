@@ -30,7 +30,7 @@ app.use(
         keys: ["Petworld"],
         maxAge: 24 * 60 * 60 * 1000 * 25, // 25 days
         secure: process.env.NODE_ENV === "production", // Set true in production for HTTPS only
-        sameSite: "lax", // Prevents cookies from being sent with cross-site requests
+        sameSite: "none", // Prevents cookies from being sent with cross-site requests
     })
 );
 // Cookie parser for reading cookies
@@ -51,7 +51,7 @@ app.use(session({
     cookie: {
         httpOnly: true, // Only accessible by the server
         secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-        sameSite: 'Lax', // Helps prevent CSRF attacks
+        sameSite: "none", // Helps prevent CSRF attacks
         maxAge: 24 * 60 * 60 * 1000 * 25, // Set session to expire after 25 days
     },
 }));
