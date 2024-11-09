@@ -42,6 +42,10 @@ app.use(cors({
     origin: (process.env.NODE_ENV === "production")
         ? [process.env.FRONTEND_URL, process.env.API_URL] // Add your frontend and API URLs for production
         : "http://localhost:5173",
+    // origin: (origin, callback) => {
+    //   // Allow requests from any origin
+    //   callback(null, origin || "*");
+    // },
     credentials: true,  // Allow cookies to be sent with requests
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],

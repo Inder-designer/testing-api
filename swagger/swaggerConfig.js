@@ -9,7 +9,10 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'API for User Registration and Login',
     },
-    servers: [{ url: 'http://localhost:5000' }],
+    servers: [{
+      url: (process.env.NODE_ENV === "production")
+        ? process.env.API_URL : 'http://localhost:5000'
+    }],
   },
   apis: ['./routes/*.js'],
 };
