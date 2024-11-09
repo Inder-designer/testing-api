@@ -19,7 +19,7 @@ connectDB();
 
 const app = express();
 
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 // CORS Configuration
 
@@ -29,14 +29,12 @@ app.use(
         name: "session",
         keys: ["Petworld"],
         maxAge: 24 * 60 * 60 * 1000 * 25, // 25 days
-        secure: process.env.NODE_ENV === "production", // Set true in production for HTTPS only
-        sameSite: "none", // Prevents cookies from being sent with cross-site requests
     })
 );
 // Cookie parser for reading cookies
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.urlencoded({ limit: '10mb', extended: true }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(cors({
     origin: (process.env.NODE_ENV === "production")
@@ -55,9 +53,9 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        httpOnly: true, // Only accessible by the server
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-        sameSite: "none", // Helps prevent CSRF attacks
+        // httpOnly: true, // Only accessible by the server
+        // secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        // sameSite: "none", // Helps prevent CSRF attacks
         maxAge: 24 * 60 * 60 * 1000 * 25, // Set session to expire after 25 days
     },
 }));

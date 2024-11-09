@@ -8,8 +8,8 @@ const sendToken = (user, statusCode, res, req, message) => {
         expires: new Date(
             Date.now() + (process.env.COOKIE_EXPIRES_TIME || 1) * 24 * 60 * 60 * 1000 // Default expiry of 1 day if not set
         ),
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production (ensure HTTPS)
-        sameSite: 'none',
+        // secure: process.env.NODE_ENV === 'production', // Use secure cookies in production (ensure HTTPS)
+        // sameSite: 'none',
     };
     const userWithoutPassword = user.toObject();
     delete userWithoutPassword.password;
