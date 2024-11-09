@@ -39,9 +39,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 app.use(cors({
-    origin: process.env.NODE_ENV === "production"
-        ? [process.env.FRONTEND_URL, "https://testing-api-mys0.onrender.com"]
-        : "http://localhost:5173",  // Allow localhost in development
+    // origin: process.env.NODE_ENV === "production"
+    //     ? [process.env.FRONTEND_URL, "https://testing-api-mys0.onrender.com"]
+    //     : "http://localhost:5173",  // Allow localhost in development
     credentials: true,  // Allow cookies to be sent with requests
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
